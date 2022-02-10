@@ -1,7 +1,7 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 import requests
-from .decorators_custom import timeit
+from main_project.decoretors.decorators_custom import timeit
 
 weather_api_key = "4850342c56619e5ba0c502c2dd9ab4f1"
 

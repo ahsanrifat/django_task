@@ -136,6 +136,33 @@
 				"description": ""
 			},
 			"response": []
+		},
+		{
+			"name": "upload profile picture",
+			"request": {
+				"url": "http://127.0.0.1:8000/auth/api/upload/profile_picture/user/44/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0OTIzNjQ0LCJpYXQiOjE2NDQ0OTE2NDQsImp0aSI6IjYwZDFmZTBjYzdjMjQ3ZWFiYzQ5Zjg1MjUxODIwYTFlIiwidXNlcl9pZCI6NDR9.5907kmIcpgsrNumVeZXwG4jlZRds221txMGCEkU9YF4",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "profile_picture",
+							"description": "",
+							"type": "file",
+							"src": "Screenshot from 2022-02-05 12-48-11.png"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
 		}
 	]
 }

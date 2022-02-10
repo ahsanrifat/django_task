@@ -7,6 +7,7 @@ from rest_framework.response import Response
 from django.db.models.signals import post_save, pre_save
 from .serializers import UserCreateSerializer, CustomTokenObtainPairSerializer
 from rest_framework import status
+from main_project.decoretors.decorators_custom import timeit
 
 # from django.core.exceptions import PermissionDenied
 from .models import User
@@ -28,6 +29,7 @@ class CreateNewUser(CreateAPIView):
     serializer_class = UserCreateSerializer
     permission_classes = [AllowAny]
 
+    @timeit
     def create(self, request, *args, **kwargs):
         try:
             # request.data = json.dumps(request.data)
@@ -60,6 +62,7 @@ class UploadProfilePicture(CreateAPIView):
     serializer_class = UserCreateSerializer
     permission_classes = [IsAdminOrUser]
 
+    @timeit
     def post(self, request, *args, **kwargs):
         try:
             user_obj = User.objects.get(id=kwargs.get("pk"))
@@ -98,6 +101,7 @@ class GetUpdateDeleteUser(RetrieveUpdateDestroyAPIView):
     serializer_class = UserCreateSerializer
     permission_classes = [IsAuthenticated]
 
+    @timeit
     def get(self, request, *args, **kwargs):
         try:
             instance = self.get_object()

@@ -1,0 +1,141 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Weather_API",
+		"_postman_id": "e09c39ec-e05d-1f84-0d58-2cb0afd5186c",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Weather by city",
+			"request": {
+				"url": {
+					"raw": "http://127.0.0.1:8000/weather/city?city=London",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"weather",
+						"city"
+					],
+					"query": [
+						{
+							"key": "city",
+							"value": "London",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "city",
+						"value": "Dhaka",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"url": "http://127.0.0.1:8000/auth/api/user/create/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"ab@k.com\",\n\t\"full_name\":\"abc efg\",\n\t\"is_active\":true,\n\t\"is_superuser\":true,\n\t\"password\":\"12345678\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Login/Token",
+			"request": {
+				"url": "http://127.0.0.1:8000/auth/api/token/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"abc@k.com\",\n\t\"password\":\"12345678\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Refresh Rotating Token",
+			"request": {
+				"url": "http://127.0.0.1:8000/auth/api/token/refresh/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "jwt ",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "refresh",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY0NDU3NzEzNSwiaWF0IjoxNjQ0NDkwNzM1LCJqdGkiOiJjMDc1MTVhNWYxMGU0MDM0OGY1MmU0ZDFlMmRlOWQxOSIsInVzZXJfaWQiOjQ0fQ.STQ6fNQTwWk8-8uajmKp7ySdYRhKgYNilglcvwtDPiA",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Logout/Blacklist Token (Refresh)",
+			"request": {
+				"url": "http://127.0.0.1:8000/auth/api/user/logout/",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "refresh",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY0NDU3NzM2NCwiaWF0IjoxNjQ0NDkwOTY0LCJqdGkiOiI1M2YwYTJjMmQxMTY0OTJlODI0YTNmYWVhYTE1MDE1YiIsInVzZXJfaWQiOjQ0fQ.bqENSjTSose_Wcgln4pZ3bDLjDfUQjVXjmtY9BeHk9E",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
